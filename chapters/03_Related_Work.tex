@@ -78,7 +78,7 @@ Using Eqn. \ref{03:eq_pgrad} the policy gradient for the expected reward with re
 \nabla_\theta \mathbb{E}_\tau[R(\tau)] = \mathbb{E}_\tau \left [ \sum_{t=0}^{T-1} \nabla_\theta \log \pi(a_t| s_t, \theta) R(\tau) \right].
 \end{equation}
 
-There are several formulations to calculate $R(\tau)$. The most common formulation uses an advantage estimate instead of $R(\tau)$ which is given as
+Other policy performance criteria can be used in place of discounted reward $R(\tau)$. One common policy performance criterion is advantage estimate $A(s_t)$ which is given as
 
 \begin{equation} \label{03:eq_adv}
 A(s_t) = \hat{R}(\tau) - V(s_t|\theta^V),

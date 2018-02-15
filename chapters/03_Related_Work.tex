@@ -98,7 +98,7 @@ Stochastic value gradients (SVG) proposed by \cite{svg} provides a family of rei
 
 
 \subsection{Trust Region Policy Optimization}
-Trust region policy optimization (TRPO) \cite{schulman2015trust} makes vanilla policy gradient algorithms stable and sample efficient. Vanilla policy gradient algorithms use an estimator of the reward $R(\tau)$ (calculated using Eqn. \ref{eq:discreward} for $T$ steps) obtained from the generated trajectory $\tau$. Since, vanilla policy algorithms update policy from the sampled batch which is generated using the same policy, if some gradient update leads to a bad policy, the bad policy will then generate bad trajectories leading to further drop in the performance and it becomes hard for algorithm to recover.
+Trust region policy optimization (TRPO) \cite{schulman2015trust} makes vanilla policy gradient algorithms stable and sample efficient. Vanilla policy gradient algorithms use an estimator of the reward $R(\tau)$ (calculated using Eqn. \ref{eq:discreward} for $T$ steps) obtained from the generated trajectory $\tau$. Since, vanilla policy algorithms update the policy from the sampled batch which is generated using the same policy, if some gradient update leads to a bad policy, the bad policy will then generate bad trajectories leading to further drop in the performance and it becomes hard for algorithm to recover.
 
 TRPO addresses this problem by using a \textit{surrogate objective} which is given as 
 
@@ -106,7 +106,7 @@ TRPO addresses this problem by using a \textit{surrogate objective} which is giv
 L_{\pi_{old}}(\pi) = \dfrac{1}{N} \sum_{i=1}^N \dfrac{\pi(a_i|s_i)}{\pi_{old}(a_i|s_i)} \hat{A_i},
 \end{equation}
 
-where $\pi_{old}$ is the old policy to which the N samples were generated, $\pi$ is the current policy and $\hat{A_i}$ is the advantage estimate (same as $R(\tau)$) calculated on $\pi_{old}$. The policy gradient can be calculated by differentiating the surrogate objective loss. TRPO is an on-policy policy gradient algorithm.
+where $\pi_{old}$ is the old policy to which the N samples were generated, $\pi$ is the current policy and $\hat{A_i}$ is the advantage estimate (same as $R(\tau)$) calculated on $\pi_{old}$. The surrogate loss bounds the policy parameter updates and the policy does not diverge if some bad policy update is encountered. The policy gradient can be calculated by differentiating the surrogate objective loss. TRPO is an on-policy policy gradient algorithm.
 
 \subsection{Asynchronous Advantage Actor Critic}
 Asynchronous advantage actor-critic (A3C) \cite{a3c} is an on-policy, actor-critic algorithm. The policy gradient in A3C is calculated using Eqn. \ref{03:eq_policygradient} and Eqn. \ref{03:eq_adv}. A3C trains multiple actor-critic networks asynchronously by running multiple agent threads. Each agent thread uses its local copy of actor-critic network. The local network parameters are synchronized with a global network at the start of each iteration. Each agent accumulates local gradients and updates the global network at end of each training step.

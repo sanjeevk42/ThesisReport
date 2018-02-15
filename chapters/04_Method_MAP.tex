@@ -54,7 +54,7 @@ In the experimental section, we will investigate if the predicted value for each
 
 \newpage
 \section{DDPG with MAPG}
-Here we modify deep deterministic policy gradient (DDPG) algorithm to use MAPG. DDPG is based on actor-critic architecture, where actor network produces a deterministic policy $\pi(s)$ for a state $s$. To make DDPG use MAPG, we modify the last layer of actor network and output $M$ action vectors. During training of the algorithm, one out of $M$ action vectors is uniformly sampled and index $j$ of the chosen action vector is saved along with transition $(s_t, a^i_t, s_{t+1}, r_t) $. Now, during optimization of the actor network, the policy gradient is only propagated through the branch connected by $j$ at the last layer. Over time each branch in the last layer will be selected equally often, thus every branch will be updated and learned during training. 
+Here we modify deep deterministic policy gradient (DDPG) algorithm to use MAPG. DDPG is based on actor-critic architecture, where actor network produces a deterministic policy $\pi(s)$ for a state $s$. To make DDPG use MAPG, we modify the last layer of actor network and output $M$ action vectors. During training of the algorithm, one out of $M$ action vectors is uniformly sampled and index $j$ of the chosen action vector is saved along with transition $(s_t, a^j_t, s_{t+1}, r_t) $. Now, during optimization of the actor network, the policy gradient is only propagated through the branch connected by $j$ at the last layer. Over time each branch in the last layer will be selected equally often, thus every branch will be updated and learned during training. 
 
 
 % This training process is illustrated in Figure \ref{fig:05_mapg}.
@@ -94,3 +94,4 @@ Algorithm \ref{alg:ddpgmap} outlines the MAPG algorithm in detail.
   \ENDFOR
 \end{algorithmic}
 \end{algorithm}
+

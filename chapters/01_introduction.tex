@@ -10,7 +10,7 @@ Reinforcement learning (RL) is a branch of machine learning inspired by behavior
 \begin{figure}[h]
     \centering
     \includegraphics[width=.45\linewidth]{figures/01/rl.jpg}
-    \caption{A typical reinforcement learning setup. The agent interacts with environment by performing actions, and receives reward and observation from interpreter as dictated by problem. Source: Wikipedia}
+    \caption{A typical reinforcement learning setup. The agent interacts with the environment by performing actions, and receives reward and observation from the interpreter as dictated by the problem. Source: Wikipedia}
     \label{fig:01_rl}
 \end{figure}
 
@@ -45,3 +45,4 @@ The proposed formulation of the policy has several interesting implications. Fir
 While MAPG helps in optimizing continuous policies, it has few drawbacks. It increases the overall training time of the algorithm. The value of $M$ is an hyper-parameter which needs to be tuned separately for different environments. 
 
 In experiments, we evaluate MAPG on DDPG \cite{ddpg} algorithm on six continuous control problems of the OpenAI Gym \cite{greg2016} as well as a \textit{deep driving} scenario using the TORCS car simulator \cite{TORCS}. Then, we compare the performance of MAPG with DDPG \cite{ddpg}, A3C \cite{a3c} and SVG(0) \cite{svg} on all tasks. Further, we study the effects of MAPG on exploration during training and the quality of policy by analyzing the variance among different action values.
+

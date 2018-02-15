@@ -1,0 +1,21 @@
+\chapter{\abstractname}
+
+Deep reinforcement learning has been applied successfully to a lot of domains in past few years. This thesis is primarily focused on deep reinforcement learning algorithms for continuous action space problems. Continuous action space problems arise very commonly in robotics such as picking objects with a robotic arm, autonomous driving etc. One common challenge in continuous control problems is the prediction of stochastic actions for a given state. We address this problem by using a formulation which produces $M$ actions at each state. This formulation is general enough to be used with various reinforcement learning algorithms. We demonstrate this by proposing a stochastic version of deterministic policy gradient algorithm (DPG) called multiple action policy gradients (MAPG) and evaluate it on Mujoco continuous control problems and TORCS driving task. Further, we compare the results of our approach with other stochastic policy gradient algorithms.
+
+% We experimentally demonstrate the effectiveness of this formulation on Mujoco continuous control problems and TORCS driving task.  
+
+% Here, we investigate existing recent deep reinforcement learning algorithms for continuous control problems and 
+
+% We purpose a  new  approach  to  estimate  continuous  actions  using  actor-critic algorithms for reinforcement learning problems. Policy gradient methods usually
+% predict one continuous action estimate or parameters of a presumed distribution
+% (most commonly Gaussian) for any given state which might not be optimal as it
+% may not capture the complete description of the target distribution. Our approach
+% instead predicts
+% M
+% actions with the policy network (actor) and then uniformly
+% sample one action during training as well as testing at each state. This allows the
+% agent to learn a simple stochastic policy that has an easy to compute expected
+% return.   In  all  experiments,  this  facilitates  better  exploration  of  the  state  space
+% during training and converges to a better policy.
+
+

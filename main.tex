@@ -1,0 +1,88 @@
+\RequirePackage[l2tabu,orthodox]{nag}
+
+% TODO: decide if one-sided/two-sided
+%\documentclass[headsepline,footsepline,footinclude=false,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc,BCOR=12mm,DIV=12]{scrbook} % two-sided
+\documentclass[headsepline,footsepline,footinclude=false,oneside,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc]{scrbook} % one-=sided
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{float}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand\env[1]{\texttt{#1}}
+
+\newcommand\todo[1]{\textbf{TODO: }\textcolor{red}{#1}}
+
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \newpage}
+
+% TODO: change citation style in settings
+\input{settings}
+
+% TODO: change thesis information
+\newcommand*{\getUniversity}{Technische Universität München}
+\newcommand*{\getFaculty}{Department of Informatics}
+\newcommand*{\getTitle}{Multiple Action Prediction in Deep Reinforcement Learning}
+\newcommand*{\getTitleGer}{Tiefes bestärkendes Lernen mit multiplen Aktionen}
+\newcommand*{\getAuthor}{Sanjeev Kumar}
+\newcommand*{\getDoctype}{Master's Thesis in Informatics}
+\newcommand*{\getSupervisor}{Prof. Dr. Nassir Navab}
+\newcommand*{\getAdvisor}{Christian Rupprecht, Dr. Federico Tombari }
+\newcommand*{\getSubmissionDate}{15.02.2017}
+\newcommand*{\getSubmissionLocation}{Munich}
+
+\begin{document}
+
+% Set page numbering to avoid "destination with the same identifier has been already used" warning for cover page.
+% (see https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_Links_and_Pages).
+\pagenumbering{alph}
+\input{pages/cover}
+
+\frontmatter{}
+\afterpage{\blankpage}
+\input{pages/title}
+\afterpage{\blankpage}
+\input{pages/disclaimer}
+\afterpage{\blankpage}
+\input{pages/acknowledgements}
+\input{pages/abstract}
+\afterpage{\blankpage}
+\microtypesetup{protrusion=false}
+\tableofcontents{}
+\microtypesetup{protrusion=true}
+
+\mainmatter{}
+\afterpage{\blankpage}
+\input{chapters/01_introduction}
+\afterpage{\blankpage}
+\input{chapters/02_Background}
+\afterpage{\blankpage}
+\input{chapters/03_Related_Work}
+\afterpage{\blankpage}
+\input{chapters/04_Method_MAP}
+\afterpage{\blankpage}
+\input{chapters/05_Experiments}
+\afterpage{\blankpage}
+\input{chapters/06_conclusion}
+\afterpage{\blankpage}
+% TODO: add more chapters here
+
+\appendix{}
+
+\microtypesetup{protrusion=false}
+\listoffigures{}
+\afterpage{\blankpage}
+\listoftables{}
+\afterpage{\blankpage}
+\microtypesetup{protrusion=true}
+\printbibliography{}
+
+\end{document}

@@ -1,0 +1,20 @@
+\chapter{Conclusion and Future Work}\label{chapter:conclusion}
+
+As a part of the thesis work, we investigated stochastic continuous action space algorithms. First, we proposed a stochastic continuous control algorithm (MAPG). In experiments, we compared the performance of MAPG on various continuous control tasks with other stochastic control algorithms. The proposed method enabled better exploration of the state space and showed improved performance over DDPG. As indicated by exploration experiments, it can also be a used as a standalone exploration technique, although more work needs to be done in this direction. We also experimented with training from pixels directly, but the result were not comparable to sensor input based training.
+
+\section{Future Work}
+Although, our methods show good results on Mujoco environments as compared with DDPG, A3C, and SVG, there is further scope for improvement in the following areas:
+
+\subsection{On-policy Algorithms}
+We evaluated our method on a variation of DDPG which is off-policy. There are a lot of on-policy algorithms for continuous action space problems such as Proximal Policy Optimization (PPO) \cite{SchulmanWDRK17}, Trust Region Policy Optimization (TRPO) which show good performance on several control environments. The evaluation of MAPG on on-policy algorithms will enable studying the generality of the approach.
+
+
+\subsection{Visual Environments}
+In our experiments, we only did evaluations with sensor-based input data and didn't have much success with visual input. Further experiments with visual environments will give us more insights into training from raw pixel data and increase the applicability of the method.
+
+\subsection{Exploration}
+In exploration experiments, MAPG was able to learn a good policy without any external policy. Though, it wasn't comparable to policies learned with external exploration noise. Using an additional loss term which encourages the $M$ actions to differ initially and then decays over time could improve the exploration of the algorithm.
+
+
+\subsection{Model Based Reinforcement Learning}
+The idea of multiple action prediction can be extended to model-based reinforcement learning where the model predicts multiple future states at each time step. It will provide a rich representation for transition probability function in continuous environments as there are usually a large number of valid future states at every time step.
